@@ -27,24 +27,24 @@
             
         <div class="form-group">
             <label for="name">App Key:</label>
-            <input type="text" name="bkash_app_key" id="store_id" placeholder="Write Your Store Id" class="form-control " value="{{$PaymentGateway->bkash_app_key}}" required="" autocomplete="off">
+            <input type="text" name="bkash_app_key" id="store_id" placeholder="Write Your Bkashi Api Key" class="form-control " value="" required="" autocomplete="off">
         </div>
 
         <div class="form-group">
             <label for="name">App Secret:</label>
-            <input type="text" name="bkash_app_secret" id="store_password" placeholder="Write Your Store Password" class="form-control " value="{{$PaymentGateway->bkash_app_secret}}" required="" autocomplete="off">
+            <input type="text" name="bkash_app_secret" id="store_password" placeholder="Write Your App Secret" class="form-control " value="" required="" autocomplete="off">
         </div>
         <div class="form-group">
             <label for="name">User Name:</label>
-            <input type="text" name="bkash_user_name" id="store_password" placeholder="Write Your Store Password" class="form-control " value="{{$PaymentGateway->bkash_user_name}}" required="" autocomplete="off">
+            <input type="text" name="bkash_user_name" id="store_password" placeholder="Write Your User Name" class="form-control " value="" required="" autocomplete="off">
         </div>
         <div class="form-group">
             <label for="name">Password:</label>
-            <input type="text" name="bkash_user_password" id="store_password" placeholder="Write Your Store Password" class="form-control " value="{{$PaymentGateway->bkash_user_password}}" required="" autocomplete="off">
+            <input type="text" name="bkash_user_password" id="store_password" placeholder="Write Your Store Password" class="form-control " value"" required="" autocomplete="off">
         </div>
         <div class="form-group">
             <label for="name">Call Back URL</label>
-            <input type="text" name="bkash_curl" id="store_password" placeholder="Write Your Store Password" class="form-control " value="{{$PaymentGateway->bkash_curl}}" required="" autocomplete="off">
+            <input type="text" name="bkash_curl" id="store_password" placeholder="Write Your Call Back Url" class="form-control " value="" required="" autocomplete="off">
         </div>
         <div class="form-group">
           <label for="bkash_test_mode" class="  form-label">LIVE =0 | TEST =1</label>

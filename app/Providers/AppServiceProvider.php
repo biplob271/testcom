@@ -57,12 +57,12 @@ class AppServiceProvider extends ServiceProvider
         
        if($ssLConfg){
         if($ssLConfg->bkash_test_mode == 1){
-            $mode="true";
+            $mode=true;
         }else{
-            $mode="false";
-
+            $mode=false;
+           
         }
-       
+     
         $data = [
            
                     "sandbox"         => $mode,
