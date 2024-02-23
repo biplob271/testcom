@@ -12,7 +12,7 @@
  </li>      
  <li class="nav-item has-treeview  {{ Request()->routeIs('landingShow','addLandingPage') ? 'menu-open' : ' ' }}">
 <a href="" class="nav-link {{ Request()->routeIs('landingShow','addLandingPage') ? 'active' : ' ' }}">
-    <i class="nav-icon far fa-address-book text-sm"></i>
+    <i class="nav-icon far fa-file text-sm"></i>
     <p>
        ল্যান্ডিং পেজ
         <i class="right fas fa-angle-left"></i>
@@ -36,13 +36,13 @@
  <li class="nav-item">
         <a href="{{route('category')}}" class="nav-link {{ Request()->routeIs('category') ? 'active' : ' ' }}">
             <i class="nav-icon fas fa-list text-sm"></i>
-            <p> সবগুলো ক্যাটাগোরি </p>
+            <p> ক্যাটাগোরি </p>
         </a>
     </li>
     
 <li class="nav-item">
     <a href="{{route('product')}}" class="nav-link {{ Request()->routeIs('product') ? 'active' : ' ' }}">
-        <i class="nav-icon fas fa-bars-progress"></i>
+    <i class="nav-icon fas fa-sitemap text-sm"></i>
         <p> পোডাক্ট </p>
     </a>
 </li>
@@ -50,10 +50,10 @@
 
 <li class="nav-item has-treeview  {{ Request()->routeIs('order') ? 'menu-open' : ' ' }}">
     <a href="" class="nav-link {{ Request()->routeIs('order') ? 'active' : ' ' }}">
-    <i class="nav-icon fas fa-cogs text-sm"></i>
+    <i class="nav-icon far fa-chart-bar text-sm"></i>
     <p>
        অর্ডার ম্যানেজমেন্ট
-        <i class="right fas fa-folder-tree"></i>
+       <i class="right fas fa-angle-left"></i>
     </p>
     </a>
     <ul class="nav nav-treeview">   
@@ -111,7 +111,7 @@
  
     <li class="nav-item">
     <a href="{{route('viewUser')}}" class="nav-link {{ request()->routeIs('viewUser') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-clipboard-user text-sm"></i>
+    <i class="nav-icon far fa-circle text-sm"></i>
         <p> সকল ষ্টাফ দেখুন </p>
     </a>
     </li>
@@ -119,7 +119,7 @@
 
     <li class="nav-item">
     <a href="{{route('addUser')}}" class="nav-link {{ request()->routeIs('addUser') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-user-plus text-sm"></i>
+    <i class="nav-icon far fa-circle text-sm"></i>
         <p> ষ্টাফ যোগ করুন </p>
     </a>
     </li>
@@ -129,7 +129,7 @@
 
     <li class="nav-item">
         <a href="{{route('singleSms', 'single')}}" class="nav-link {{ request()->is('sms/single') ? 'active' : '' }}">
-        <i class="nav-icon far fa-circle text-sm"></i>
+        <i class="nav-icon fas fa-envelope-open-text text-sm"></i>
         <p>বার্তা পাঠান</p>
         </a>
     </li>
@@ -153,9 +153,9 @@
 
 <li class="nav-item has-treeview  {{ Request()->routeIs('setting','DeliveryCharge','theme') ? 'menu-open' : ' ' }}">
     <a href="" class="nav-link {{ Request()->routeIs('setting','DeliveryCharge','theme') ? 'active' : ' ' }}">
-    <i class="nav-icon fas fa-cogs text-sm"></i>
+    <i class="nav-icon far fa-futbol text-sm"></i>
     <p>
-      সাইট সেটাপ
+    ওয়েবসাইট সেটাপ
         <i class="right fas fa-angle-left"></i>
     </p>
     </a>
@@ -165,14 +165,14 @@
     <li class="nav-item">
         <a href="{{route('setting')}}" class="nav-link {{ Request()->routeIs('setting') ? 'active' : ' ' }}">
             <i class="nav-icon  far fa-circle text-sm"></i>
-            <p> ওয়েবসাইট সেটাপ</p>
+            <p> জেনারেল সেটাপ</p>
         </a>
     </li>
 	
     <li class="nav-item">
         <a href="{{route('DeliveryCharge')}}" class="nav-link {{ Request()->routeIs('DeliveryCharge') ? 'active' : ' ' }}">
-            <i class="nav-icon fa fa-file-pdf text-sm"></i>
-            <p>ডেলিভারি চার্জ সেট করুন</p>
+            <i class="nav-icon far fa-circle text-sm"></i>
+            <p>শিপিং চার্জ সেটাপ</p>
         </a>
     </li>
 	
@@ -198,7 +198,7 @@
     </li>  
     <li class="nav-item">
         <a href="{{route('paymentGty')}}" class="nav-link {{ Request()->routeIs('paymentGty') ? 'active' : ' ' }}">
-        <i class="nav-icon fas fa-cogs text-sm"></i>
+        <i class="nav-icon far fa-circle text-sm"></i>
         <p>পেমেন্ট গেটওয়ে সেটাপ</p>
         </a>
     </li>
