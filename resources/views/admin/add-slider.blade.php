@@ -11,7 +11,8 @@
             <tr>
               <th>SL</th>
               <th>Image</th>
-              <th>Slider Name</th>
+              <th>Slider Title</th>
+              <th>Image Url</th>
               <th>Action</th>
             </tr>
             </thead>
@@ -21,7 +22,9 @@
               <td>{{++$key}}</td>
               <td><img src="/uploads/{{$data->image}}" alt="Product Image" width="150px"></td>
               <td>{{$data->name}}</td>
-              <td>
+              <td>{{$data->img_url}}</td>
+              <td> 
+                    <a href="{{route('sliderEdit', $data->id)}}" class="btn text-white btn-warning btn-sm">Slider Edit</a>
                     <a href="{{route('sliderDestroy', $data->id)}}" class="btn text-white btn-danger btn-sm">Delete</a>
               </td>
             </tr>
@@ -53,10 +56,11 @@
               <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Category Name :</label>
+                            <label>Slider Title :</label>
                             <input type="text" class="form-control form-control-sm" name="name" value="" required /> 
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <div class="form-group">
                                     <label for="Name">Slider Image</label>
@@ -67,6 +71,12 @@
                                     @endif
                         </div>               
                     </div> 
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Slider Image Link :</label>
+                            <input type="text" class="form-control form-control-sm" name="img_url" value="" required /> 
+                        </div>
+                    </div>
                 
             </div>
             </div>

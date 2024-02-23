@@ -25,6 +25,7 @@
               <td>{{$data->product_id}}</td>
               <td>
                   <a href="{{route('landingPage', $data->id)}}" target="_blank"  class="btn text-white btn-info btn-sm">View</a>
+                  <a href="{{route('editLandingPage', $data->id)}}" class="btn text-white btn-warning btn-sm">Edit</a>
                   <a href="{{route('landingDestroy', $data->id)}}" class="btn text-white btn-danger btn-sm">Delete</a>
                  
               </td>
