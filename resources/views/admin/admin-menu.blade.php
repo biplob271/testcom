@@ -151,8 +151,8 @@
 
 
 
-<li class="nav-item has-treeview  {{ Request()->routeIs('setting','homeSetting','slider','theme') ? 'menu-open' : ' ' }}">
-    <a href="" class="nav-link {{ Request()->routeIs('setting','homeSetting','slider','theme') ? 'active' : ' ' }}">
+<li class="nav-item has-treeview  {{ Request()->routeIs('setting','DeliveryCharge','theme') ? 'menu-open' : ' ' }}">
+    <a href="" class="nav-link {{ Request()->routeIs('setting','DeliveryCharge','theme') ? 'active' : ' ' }}">
     <i class="nav-icon fas fa-cogs text-sm"></i>
     <p>
       সাইট সেটাপ
@@ -181,8 +181,8 @@
 </li>
 
 
-<li class="nav-item has-treeview  {{ Request()->routeIs('smsGty','paymentGty','licenseMgt','SysUpdate') ? 'menu-open' : ' ' }}">
-    <a href="" class="nav-link {{ Request()->routeIs('smsGty','paymentGty','licenseMgt','SysUpdate') ? 'active' : ' ' }}">
+<li class="nav-item has-treeview  {{ Request()->routeIs('smsGty','paymentGty','licenseMgt','SysUpdate','steadFast') ? 'menu-open' : ' ' }}">
+    <a href="" class="nav-link {{ Request()->routeIs('smsGty','paymentGty','licenseMgt','SysUpdate','steadFast') ? 'active' : ' ' }}">
     <i class="nav-icon fas fa-cogs text-sm"></i>
     <p>
        স্টিষ্টেম কনফিগারেশন
