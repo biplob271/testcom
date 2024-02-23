@@ -4,7 +4,13 @@
         <p> ড্যাশবোর্ড </p>
     </a>
 </li>
-
+ <li class="nav-item">
+    <a href="{{route('slider')}}" class="nav-link {{ Request()->routeIs('slider') ? 'active' : ' ' }}">
+        <i class="nav-icon far fa-circle t text-sm"></i>
+        <p> স্লাইডার  ম্যানেজমেন্ট </p>
+    </a>
+ </li>      
+ 
 
 <li class="nav-item has-treeview  {{ Request()->routeIs('category','Section','Shift','Subject','Exam') ? 'menu-open' : ' ' }}">
 <a href="" class="nav-link {{ Request()->routeIs('category','Section','Shift','Subject','Exam') ? 'active' : ' ' }}">
@@ -198,13 +204,7 @@
     </p>
     </a>
     <ul class="nav nav-treeview">
-    <li class="nav-item">
-    <a href="{{route('slider')}}" class="nav-link {{ Request()->routeIs('slider') ? 'active' : ' ' }}">
-        <i class="nav-icon far fa-circle t text-sm"></i>
-        <p> স্লাইডার  </p>
-    </a>
-    </li>      
- 
+   
     <li class="nav-item">
         <a href="{{route('theme')}}" class="nav-link {{ Request()->routeIs('theme') ? 'active' : ' ' }}">
             <i class="nav-icon  far fa-circle text-sm"></i>
