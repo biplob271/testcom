@@ -6,37 +6,11 @@
 </li>
  <li class="nav-item">
     <a href="{{route('slider')}}" class="nav-link {{ Request()->routeIs('slider') ? 'active' : ' ' }}">
-        <i class="nav-icon far fa-circle t text-sm"></i>
+        <i class="nav-icon far fa-image t text-sm"></i>
         <p> স্লাইডার  ম্যানেজমেন্ট </p>
     </a>
  </li>      
- 
-
-<li class="nav-item has-treeview  {{ Request()->routeIs('category','Section','Shift','Subject','Exam') ? 'menu-open' : ' ' }}">
-<a href="" class="nav-link {{ Request()->routeIs('category','Section','Shift','Subject','Exam') ? 'active' : ' ' }}">
-    <i class="nav-icon far fa-address-book text-sm"></i>
-    <p>
-       ক্যাটাগোরি
-        <i class="right fas fa-angle-left"></i>
-    </p>
-    </a>
-    <ul class="nav nav-treeview">   
-    
-    <li class="nav-item">
-        <a href="{{route('category')}}" class="nav-link {{ Request()->routeIs('category') ? 'active' : ' ' }}">
-            <i class="nav-icon far fa-circle text-sm"></i>
-            <p> সবগুলো ক্যাটাগোরি </p>
-        </a>
-    </li>
-    </ul>
-</li>
-<li class="nav-item">
-    <a href="{{route('product')}}" class="nav-link {{ Request()->routeIs('product') ? 'active' : ' ' }}">
-        <i class="nav-icon fa fa-address-book"></i>
-        <p> পোডাক্ট </p>
-    </a>
-</li>
-<li class="nav-item has-treeview  {{ Request()->routeIs('landingShow','addLandingPage') ? 'menu-open' : ' ' }}">
+ <li class="nav-item has-treeview  {{ Request()->routeIs('landingShow','addLandingPage') ? 'menu-open' : ' ' }}">
 <a href="" class="nav-link {{ Request()->routeIs('landingShow','addLandingPage') ? 'active' : ' ' }}">
     <i class="nav-icon far fa-address-book text-sm"></i>
     <p>
@@ -59,13 +33,27 @@
     </li>
     </ul>
 </li>
+ <li class="nav-item">
+        <a href="{{route('category')}}" class="nav-link {{ Request()->routeIs('category') ? 'active' : ' ' }}">
+            <i class="nav-icon fas fa-list text-sm"></i>
+            <p> সবগুলো ক্যাটাগোরি </p>
+        </a>
+    </li>
+    
+<li class="nav-item">
+    <a href="{{route('product')}}" class="nav-link {{ Request()->routeIs('product') ? 'active' : ' ' }}">
+        <i class="nav-icon fas fa-bars-progress"></i>
+        <p> পোডাক্ট </p>
+    </a>
+</li>
+
 
 <li class="nav-item has-treeview  {{ Request()->routeIs('order') ? 'menu-open' : ' ' }}">
     <a href="" class="nav-link {{ Request()->routeIs('order') ? 'active' : ' ' }}">
     <i class="nav-icon fas fa-cogs text-sm"></i>
     <p>
        অর্ডার ম্যানেজমেন্ট
-        <i class="right fas fa-angle-left"></i>
+        <i class="right fas fa-folder-tree"></i>
     </p>
     </a>
     <ul class="nav nav-treeview">   
@@ -123,7 +111,7 @@
  
     <li class="nav-item">
     <a href="{{route('viewUser')}}" class="nav-link {{ request()->routeIs('viewUser') ? 'active' : '' }}">
-        <i class="nav-icon far fa-circle text-sm"></i>
+        <i class="nav-icon fas fa-clipboard-user text-sm"></i>
         <p> সকল ষ্টাফ দেখুন </p>
     </a>
     </li>
@@ -131,7 +119,7 @@
 
     <li class="nav-item">
     <a href="{{route('addUser')}}" class="nav-link {{ request()->routeIs('addUser') ? 'active' : '' }}">
-        <i class="nav-icon far fa-circle text-sm"></i>
+        <i class="nav-icon fas fa-user-plus text-sm"></i>
         <p> ষ্টাফ যোগ করুন </p>
     </a>
     </li>
@@ -139,44 +127,12 @@
     </ul>
 </li>
 
-
-
-
-
-
-
-
-
-<li class="nav-item has-treeview  {{ Request()->routeIs('singleSms') ? 'menu-open' : ' ' }}">
-    <a href="" class="nav-link {{ Request()->routeIs('singleSms') ? 'active' : ' ' }}">
-    <i class="nav-icon fas fa-paper-plane text-sm"></i>
-    <p>
-      বার্তা ম্যানেজমেন্ট
-        <i class="right fas fa-angle-left"></i>
-    </p>
-    </a>
-    <ul class="nav nav-treeview">   
     <li class="nav-item">
         <a href="{{route('singleSms', 'single')}}" class="nav-link {{ request()->is('sms/single') ? 'active' : '' }}">
         <i class="nav-icon far fa-circle text-sm"></i>
         <p>বার্তা পাঠান</p>
         </a>
     </li>
-  
-    </ul>
-</li>
-
-
-
-
-
-<li class="nav-item">
-    <a href="{{route('DeliveryCharge')}}" class="nav-link {{ Request()->routeIs('DeliveryCharge') ? 'active' : ' ' }}">
-        <i class="nav-icon fa fa-file-pdf text-sm"></i>
-        <p>ডেলিভারি চার্জ সেট করুন</p>
-    </a>
-</li>
-
 {{-- 
 <li class="nav-item">
     <a href="{{route('blogPost')}}" class="nav-link {{ Request()->routeIs('blogPost') ? 'active' : ' ' }}">
@@ -205,12 +161,7 @@
     </a>
     <ul class="nav nav-treeview">
    
-    <li class="nav-item">
-        <a href="{{route('theme')}}" class="nav-link {{ Request()->routeIs('theme') ? 'active' : ' ' }}">
-            <i class="nav-icon  far fa-circle text-sm"></i>
-            <p>থীম আপলোড</p>
-        </a>
-    </li>
+   
     <li class="nav-item">
         <a href="{{route('setting')}}" class="nav-link {{ Request()->routeIs('setting') ? 'active' : ' ' }}">
             <i class="nav-icon  far fa-circle text-sm"></i>
@@ -218,6 +169,12 @@
         </a>
     </li>
 	
+    <li class="nav-item">
+        <a href="{{route('DeliveryCharge')}}" class="nav-link {{ Request()->routeIs('DeliveryCharge') ? 'active' : ' ' }}">
+            <i class="nav-icon fa fa-file-pdf text-sm"></i>
+            <p>ডেলিভারি চার্জ সেট করুন</p>
+        </a>
+    </li>
 	
 	
     </ul>
@@ -232,31 +189,39 @@
         <i class="right fas fa-angle-left"></i>
     </p>
     </a>
-    <ul class="nav nav-treeview">   
+    <ul class="nav nav-treeview"> 
+    <li class="nav-item">
+        <a href="{{route('theme')}}" class="nav-link {{ Request()->routeIs('theme') ? 'active' : ' ' }}">
+            <i class="nav-icon  far fa-circle text-sm"></i>
+            <p>থীম আপলোড</p>
+        </a>
+    </li>  
+    <li class="nav-item">
+        <a href="{{route('paymentGty')}}" class="nav-link {{ Request()->routeIs('paymentGty') ? 'active' : ' ' }}">
+        <i class="nav-icon fas fa-cogs text-sm"></i>
+        <p>পেমেন্ট গেটওয়ে সেটাপ</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{route('steadFast')}}" class="nav-link {{ Request()->routeIs('steadFast') ? 'active' : ' ' }}">
+        <i class="nav-icon far fa-circle text-sm"></i>
+            <p>কুরিয়ার  সেটাপ</p>
+        </a>
+	</li>
     <li class="nav-item">
         <a href="{{route('smsGty')}}" class="nav-link {{ Request()->routeIs('smsGty') ? 'active' : ' ' }}">
         <i class="nav-icon far fa-circle text-sm"></i>
         <p>বার্তা সেটাপ</p>
         </a>
     </li>
-    <li class="nav-item">
-        <a href="{{route('paymentGty')}}" class="nav-link {{ Request()->routeIs('paymentGty') ? 'active' : ' ' }}">
-        <i class="nav-icon fas fa-cogs text-sm"></i>
-        <p>পেমেন্ট সেটাপ</p>
-        </a>
-    </li>
+   
 	<li class="nav-item">
     <a href="{{route('paymentMethod')}}" class="nav-link {{ request()->routeIs('paymentMethod') ? 'active' : '' }}">
         <i class="nav-icon far fa-circle text-sm"></i>
-        <p>পেমেন্ট গেটওয়ে সেটাপ  </p>
+        <p>ফিচার ম্যানেজমেন্ট  </p>
     </a>
 	</li>
-	<li class="nav-item">
-        <a href="{{route('steadFast')}}" class="nav-link {{ Request()->routeIs('steadFast') ? 'active' : ' ' }}">
-        <i class="nav-icon far fa-circle text-sm"></i>
-            <p>কুরিয়ার  সেটাপ</p>
-        </a>
-	</li>
+	
     <li class="nav-item">
         <a href="{{route('SysUpdate')}}" class="nav-link {{ Request()->routeIs('SysUpdate') ? 'active' : ' ' }}">
         <i class="nav-icon far fa-circle text-sm"></i>
