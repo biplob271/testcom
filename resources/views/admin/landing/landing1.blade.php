@@ -4,8 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>{{$Landing->title}} | {{$Setting->site_name}} </title>
+    <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/assets/theme/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/theme/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="/assets/theme/css/slick.min.css" />
+    <link rel="stylesheet" href="/assets/theme/css/all.css" />
+    <link rel="stylesheet" href="/assets/theme/css/custom.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -61,7 +66,7 @@
               display: inline-block; 
               width: 20px; 
               height: 20px; 
-              background-image: url(https://demo2.softitglobal.com/frontend/images/check.webp); 
+              background-image: url(/assets/images/check.webp); 
               background-size: cover; 
               background-repeat: no-repeat;
               margin-right: 10px;
@@ -147,6 +152,33 @@
                     </div>
 
                 </div>
+
+
+
+
+
+            
+            
+            
+            
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div id="element_widget" class="element-widget-cover">
                     <div class="element-widget-wrap">
                         <div class="element-widget" style="margin-bottom: 25px;">
@@ -155,113 +187,185 @@
                             </h2>
                         </div>
                         <div class="form-wrapper">
+                        <section class="">
+    <div class="container-fluid">
+        <div class="border-site-color pt-3 px-1 my-3 fw-bold">
+            <p><span style="color:#fe5e00">সম্মানিত ক্রেতা,</span> অডারটি কনফার্ম করতে আপনার নাম, সম্পূর্ণ ঠিকানা,মোবাইল নাম্বার লিখেে <span style="color:#fe5e00"> অর্ডার কনফার্ম করুন  </span> বাটনে ক্লিক করুন, ২৪ ঘন্টার মধ্যে আপনার সাথে ফোনে যোগাযোগ করা হবে । <span style="color:#fe5e00">ধন্যবাদ </span></p>
+        </div>
+        <div class="row">
+            
+            
+             <div class="col-md-7">
+                <div class="card " style="border: 1px solid #e9e9e9">
+                    <h5 class="font-weight-bold bg-site-color  fw-bold card-header">SHOPPING CART</h5>
+                    <div class="card-body p-2 table-responsive" id="order_info_table">
+        			
+<table class="cart_table table text-center mb-0">
+  <thead>
+    <tr>
+      <th class="text-white">#</th>
+      <th class="text-white"> Image</th>
+      <th class="text-white">Product</th>
+      <th class="text-white">Price</th>
+      <th class="text-white">Quantity</th>
+      <th class="text-white">Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @csrf
+    @php $total = 0; 
+    $pp_total= 0;
+    @endphp
+   @if(session('cart'))
+    @foreach(session('cart') as $id => $details)
+        @php
+            $sub_total= $details['price'] * $details['quantity'];
+            $pp=$details['pp'];
+            $pp_total +=$pp;
+            $total +=$sub_total;
+            
+        @endphp
+           
+            <tr rowId="{{ $id }}">
+      <td class="align-left" class="actions">
+            <a class="btn btn-outline-danger btn-sm delete-product"> <i class="text-danger fas fa-trash"></i></a>
+      </td>
+      <td>
+              <a href="#"><img loading="lazy" alt="" class="img-thumbnail" src="/uploads/{{ $details['image'] }}" style="max-width: 60px;"></a>
+              </td>
+      <td class="text-left">
+        <p class="m-0"> {{ $details['name'] }}</p>
+                                                                                                        
+      </td>
+      <td>{{ $details['price'] }}</td>
+
+      <td width="10%" class="cart_qty text-center">
+        <div class=" d-flex align-items-center mb-4 pt-1">
+
+          <div class="input-group quantity mr-3" style="width: 130px;">
+            <div class="input-group-btn">
+              <button class="btn-number qtyminus quantity-minus bg-success text-white"
+                      data-id="{{ $id}}">
+                <i class="fa fa-minus"></i>
+              </button>
+            </div>
+            <input type="text" class="input-qty qty bg-white form-control  text-center border-0 rounded-0" size="4""
+                   value="{{ $details['quantity'] }}">
+            <div class="input-group-btn">
+              <button class="btn-number qtyplus quantity-plus bg-success text-white"
+                      data-id="{{$id }}">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </td>
+      <td>{{$sub_total}}</td>
+    </tr>
+    
+    @endforeach
+   @else
+										<tr>
+											<td class="text-center">
+												There are no any carts available
+
+											</td>
+										</tr>
+	@endif
+          </tbody>
+
+  <tfoot>
+    <tr>
+      <th colspan="4" class="text-right pr-2">Sub Total</th>
+      <td><span id="net_total" data-value="{{$total}}">{{$total}}</span></td>
+
+    </tr>
+    <tr>
+      <th colspan="4" class="text-right pr-2">Shipping Cost</th>
+      <td>
+                <span id="cart_shipping_cost">{{$dCharge->all_bangladesh}}</span>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="4" class="text-right pr-2">Total</th>
+      <td>
+                <span id="grand_total">{{$total + $dCharge->all_bangladesh}}</span>
+      </td>
+          </tr>
+  </tfoot>
+</table> 
+
+
+
+</div>
+                </div>
+                <div class="continue-shoping mt-3 float-end">
+                    <a href="/" style="background:#2C6036; color:white; margin-bottom: 10px;" class="btn fw-bold">Contuniue Shopping</a>
+                </div>
+</div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="col-md-5 mb-3">
+                <div class="card">
+                    <div class="card-body">
                         <form action="{{ route('newOrder') }}" method="POST" id="checkout_form">
-                           @csrf
-                            <div class="row">
-                               <div class="address_section col-md-6" style="width: 50%;float: left;">
-                                    <div class="form-address">
-                                        <div class="address-col">
-                                            <h3>Billing Address</h3>
-                                            <div class="billing-fields">
-                                                <div class="form-group">
-                                                    <label for="">আপনার নাম <span>*</span></label>
-                                                    <input type="text" name="name" class="form-control">
-                                                
-
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="">আপনার মোবাইল নাম্বার</span></label>
-                                                    <input type="text" name="mobile" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="">আপনার সম্পূর্ণ ঠিকানা<span>*</span></label>
-                                                    <input type="text" name="shipping_address" class="form-control">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1" style="float: left;">ডেলিভারি এলাকা নির্বাচন করুন</label>
-        <select required name="shipping_charge" style="min-height: 30px !important;" onchange="getCharge()" id="delivery_charge_id" class="form-control" style="font-size:12px !important;">
-
-                                                                                          <option value="70" id="charge" data-charge="70.00">ঢাকার ভিতর</option>
-                                                                                          <option value="150" id="charge" data-charge="150.00">ঢাকার বাহির</option>
-                                                                                  </select>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="order-col" style="width: 50%;">
-                                        <h3>Your Order</h3>
-                                        <div id="order_review" class="review-order">
-                                            <table class="shop_table review-order-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="product-name">Product</th>
-                                                        <th class="product-total">Subtotal</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="cart_item">
-                                                        <td class="product-name">
-                                                            <div class="product-image">
-                                                            <div class="product-thumbnail"><img width="100%" src="/uploads/{{ (!empty($product)) ? $product->image : '' }}" class="" alt="" > </div>
-                                                                <div class="product-name-td">{{ (!empty($product)) ? $product->name : '' }}<br> Regular Price BDT: <del>{{ (!empty($product)) ? $product->rp : '' }}</del> </div>
-                                                               
-                                                            </div>
-
-                                                        </td>
-
-
-
-
-                                                    
-                                                        <td class="product-total">
-                                                        <span id="price" class="price-amount amount">{{ (!empty($product)) ? $product->dp : '' }}<span class="price-currencySymbol">&nbsp;</span></span>
-                                                        </td>
-                                                        
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr class="cart-subtotal">
-                                                        <th>Subtotal</th>
-                                                        <td><span class="price-amount amount">{{ (!empty($product)) ? $product->dp : '' }}<span class="price-currencySymbol">&nbsp;</span></span></td>
-                                                    </tr>
-                                                    <tr class="shipping-totals shipping">
-                                                        <th>Shipping</th>
-                                                        <td>
-                                                            <li style="list-style: none;">
-                                                                <span id="delvry_charge">0</span>
-                                                            </li>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="order-total">
-                                                        <th>Total</th>
-                                                        <td><strong><span id="total" class="Price-amount amount">0.00<span class="Price-currencySymbol">৳&nbsp;</span></span></strong> </td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                            <div id="payment" class="checkout-payment">
-                                                <ul class="payment_methods payment_methods methods">
-                                                    <li class="payment_method payment_method_cod">
-                                                        <label for="payment_method_cod">
-                                                        Cash on delivery 	</label>
-                                                        <div class="payment_box payment_method_cod">
-                                                            <p>Pay with cash upon delivery.</p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                <input type="hidden" class=""name="total" value="{{$product->dp}}">
-                                                <div class="form-row place-order">
-                                                     <button type="submit" class="button" name="" id="">অর্ডার করুন</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                          @csrf 
+                                                     <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">আপনার নাম <span class="text-danger">*</span></label>
+                                <input value="" type="text" class="form-control" id="customer_name" required name="name"
+                                placeholder="আপনার  নাম লিখুন"> 
+                              </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">মোবাইল নাম্বার <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="customer_phone" required name="mobile"
+                                        placeholder="আপনার মোবাইল লিখুন ">
                             </div>
-                            </form>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"> ডেলভারীর ঠিকাণা <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="customer_address" required name="shipping_address"
+                                placeholder="আপনার ঠিকাণা লিখুন ">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"> ডেলিভারী এরিয়া  <span class="text-danger">*</span></label>
+                                
+                                <select name="shipping_charge" id="shipping_method" required class="form-control" >
+                                <option value="{{$dCharge->all_bangladesh}}">ঢাকার বাহির</option>
+                                                                        <option value="{{$dCharge->inside_dhaka}}">ঢাকার ভিতর</option>
+                                                                      
+                                                                    </select>
+                            </div>
+                             <input type="hidden" class=""name="total_pp" value="{{$pp_total}}">
+                             <input type="hidden" class=""name="total" value="{{$total}}">
+                            <input type="hidden" class="" name="payment_method" value="Cash On Delivery">
+                            <div class="mb-3">
+                               <button type="submit" style="background:#2C6036; color:white" class="btn fw-bold w-100" id="conf_order_btn">অর্ডার কনফার্ম করুণ</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ </section>
+
                         </div>
                     </div>
                 </div>
@@ -269,7 +373,7 @@
         </div>
         <div class="footer">
             <div class="copyright">
-                <small> 2024 codersys.com | Developed By CoderSYS.</small>
+                <small> 2024 {{$Setting->site_name}}  | Developed By CoderSYS.</small>
             </div>
         </div>
     </div>
@@ -388,3 +492,114 @@ AOS.init({
 
 </script>
 
+
+<script>
+    $(document).ready(function(){
+      $('#menu').click(function(){
+        document.getElementById('category-mobile').classList.toggle('category-list-mobil');
+      })
+    })
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('#search').click(function(){
+        // alert("ok")
+        document.getElementById('search-mobile').classList.toggle('search-section-mobile');
+      })
+    })
+  </script>
+  <!-- <script>
+    $(document).ready(function(){
+      $('#search').click(function(){
+        $('.search-mobile').toggleClass('.search-section-mobile');
+      });
+    });
+  </script> -->
+       <script>
+       
+        
+        $(function() {
+            $('#shipping_method').on('change', function() {
+                console.log('sdfsdfs');
+                var vvv = $(this).val();
+                $("#cart_shipping_cost").text(vvv);
+                $("#shipping_cost").val(vvv);
+                calculate();
+
+            })
+            //$('#shipping_method').trigger('change')
+
+        
+          
+         $(".delete-product").click(function (e) {
+        e.preventDefault();
+  
+        var ele = $(this);
+  
+        if(confirm("Do you really want to delete?")) {
+            $.ajax({
+                url: '{{ route('delete.cart.product') }}',
+                method: "DELETE",
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    id: ele.parents("tr").attr("rowId")
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        }
+    });
+      
+
+    $(".quantity-plus").click(function (e) {
+        e.preventDefault();
+  
+        var ele = $(this);
+  
+        
+            $.ajax({
+                url: '{{ route('updateCartPlus') }}',
+                method: "GET",
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    id: ele.parents("tr").attr("rowId")
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+       
+    });
+    $(".quantity-minus").click(function (e) {
+        e.preventDefault();
+  
+        var ele = $(this);
+  
+        
+            $.ajax({
+                url: '{{ route('updateCartMinus') }}',
+                method: "GET",
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    id: ele.parents("tr").attr("rowId")
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+       
+    });
+      
+      		
+        })
+
+        function calculate() {
+            var net_total = parseFloat($('#net_total').data('value'));
+            let value = $(document).find('select#shipping_method').val();
+            value = value == '' ? 0 : value;
+            $(document).find('span#cart_shipping_cost').text(value);
+            var cart_shipping_cost = parseFloat($('#cart_shipping_cost').text());
+            $('#grand_total').text(net_total + cart_shipping_cost);
+        }
+    </script>
