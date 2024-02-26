@@ -7,10 +7,6 @@
     <title>{{$Landing->title}} | {{$Setting->site_name}} </title>
     <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="/assets/theme/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/theme/css/fontawesome.min.css" />
-    <link rel="stylesheet" href="/assets/theme/css/slick.min.css" />
-    <link rel="stylesheet" href="/assets/theme/css/all.css" />
-    <link rel="stylesheet" href="/assets/theme/css/custom.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -189,19 +185,16 @@
                         <div class="form-wrapper">
                         <section class="">
     <div class="container-fluid">
-        <div class="border-site-color pt-3 px-1 my-3 fw-bold">
-            <p><span style="color:#fe5e00">সম্মানিত ক্রেতা,</span> অডারটি কনফার্ম করতে আপনার নাম, সম্পূর্ণ ঠিকানা,মোবাইল নাম্বার লিখেে <span style="color:#fe5e00"> অর্ডার কনফার্ম করুন  </span> বাটনে ক্লিক করুন, ২৪ ঘন্টার মধ্যে আপনার সাথে ফোনে যোগাযোগ করা হবে । <span style="color:#fe5e00">ধন্যবাদ </span></p>
-        </div>
+       
         <div class="row">
             
             
              <div class="col-md-7">
                 <div class="card " style="border: 1px solid #e9e9e9">
-                    <h5 class="font-weight-bold bg-site-color  fw-bold card-header">SHOPPING CART</h5>
                     <div class="card-body p-2 table-responsive" id="order_info_table">
         			
 <table class="cart_table table text-center mb-0">
-  <thead>
+  <thead style="background:#2C6036">
     <tr>
       <th class="text-white">#</th>
       <th class="text-white"> Image</th>
@@ -302,7 +295,7 @@
 </div>
                 </div>
                 <div class="continue-shoping mt-3 float-end">
-                    <a href="/" style="background:#2C6036; color:white; margin-bottom: 10px;" class="btn fw-bold">Contuniue Shopping</a>
+                    <a href="/" style="background:#2C6036; color:white; margin-bottom: 10px;" class="btn fw-bold">আরো কিনতে</a>
                 </div>
 </div>
             
