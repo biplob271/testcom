@@ -155,27 +155,10 @@
 
             
             
-            
+            <!-- Old   Start-->
             
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div id="element_widget" class="element-widget-cover">
+            <div id="element_widget" class="element-widget-cover">
                     <div class="element-widget-wrap">
                         <div class="element-widget" style="margin-bottom: 25px;">
                             <h2 class="top-heading-title bg-light-green">
@@ -183,181 +166,170 @@
                             </h2>
                         </div>
                         <div class="form-wrapper">
-                        <section class="">
-    <div class="container-fluid">
-       
-        <div class="row">
-            
-            
-             <div class="col-md-7">
-                <div class="card " style="border: 1px solid #e9e9e9">
-                    <div class="card-body p-2 table-responsive" id="order_info_table">
-        			
-<table class="cart_table table text-center mb-0">
-  <thead style="background:#2C6036">
-    <tr>
-      <th class="text-white">#</th>
-      <th class="text-white"> Image</th>
-      <th class="text-white">Product</th>
-      <th class="text-white">Price</th>
-      <th class="text-white">Quantity</th>
-      <th class="text-white">Total</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    @csrf
-    @php $total = 0; 
-    $pp_total= 0;
-    @endphp
-   @if(session('cart'))
-    @foreach(session('cart') as $id => $details)
-        @php
-            $sub_total= $details['price'] * $details['quantity'];
-            $pp=$details['pp'];
-            $pp_total +=$pp;
-            $total +=$sub_total;
-            
-        @endphp
-           
-            <tr rowId="{{ $id }}">
-      <td class="align-left" class="actions">
-            <a class="btn btn-outline-danger btn-sm delete-product"> <i class="text-danger fas fa-trash"></i></a>
-      </td>
-      <td>
-              <a href="#"><img loading="lazy" alt="" class="img-thumbnail" src="/uploads/{{ $details['image'] }}" style="max-width: 60px;"></a>
-              </td>
-      <td class="text-left">
-        <p class="m-0"> {{ $details['name'] }}</p>
-                                                                                                        
-      </td>
-      <td>{{ $details['price'] }}</td>
-
-      <td width="10%" class="cart_qty text-center">
-        <div class=" d-flex align-items-center mb-4 pt-1">
-
-          <div class="input-group quantity mr-3" style="width: 130px;">
-            <div class="input-group-btn">
-              <button class="btn-number qtyminus quantity-minus bg-success text-white"
-                      data-id="{{ $id}}">
-                <i class="fa fa-minus"></i>
-              </button>
-            </div>
-            <input type="text" class="input-qty qty bg-white form-control  text-center border-0 rounded-0" size="4""
-                   value="{{ $details['quantity'] }}">
-            <div class="input-group-btn">
-              <button class="btn-number qtyplus quantity-plus bg-success text-white"
-                      data-id="{{$id }}">
-                <i class="fa fa-plus"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </td>
-      <td>{{$sub_total}}</td>
-    </tr>
-    
-    @endforeach
-   @else
-										<tr>
-											<td class="text-center">
-												There are no any carts available
-
-											</td>
-										</tr>
-	@endif
-          </tbody>
-
-  <tfoot>
-    <tr>
-      <th colspan="4" class="text-right pr-2">Sub Total</th>
-      <td><span id="net_total" data-value="{{$total}}">{{$total}}</span></td>
-
-    </tr>
-    <tr>
-      <th colspan="4" class="text-right pr-2">Shipping Cost</th>
-      <td>
-                <span id="cart_shipping_cost">{{$dCharge->all_bangladesh}}</span>
-      </td>
-    </tr>
-    <tr>
-      <th colspan="4" class="text-right pr-2">Total</th>
-      <td>
-                <span id="grand_total">{{$total + $dCharge->all_bangladesh}}</span>
-      </td>
-          </tr>
-  </tfoot>
-</table> 
-
-
-
-</div>
-                </div>
-                <div class="continue-shoping mt-3 float-end">
-                    <a href="/" style="background:#2C6036; color:white; margin-bottom: 10px;" class="btn fw-bold">আরো কিনতে</a>
-                </div>
-</div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="col-md-5 mb-3">
-                <div class="card">
-                    <div class="card-body">
                         <form action="{{ route('newOrder') }}" method="POST" id="checkout_form">
-                          @csrf 
-                                                     <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">আপনার নাম <span class="text-danger">*</span></label>
-                                <input value="" type="text" class="form-control" id="customer_name" required name="name"
-                                placeholder="আপনার  নাম লিখুন"> 
-                              </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">মোবাইল নাম্বার <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" id="customer_phone" required name="mobile"
-                                        placeholder="আপনার মোবাইল লিখুন ">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label"> ডেলভারীর ঠিকাণা <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="customer_address" required name="shipping_address"
-                                placeholder="আপনার ঠিকাণা লিখুন ">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label"> ডেলিভারী এরিয়া  <span class="text-danger">*</span></label>
-                                
-                                <select name="shipping_charge" id="shipping_method" required class="form-control" >
-                                <option value="{{$dCharge->all_bangladesh}}">ঢাকার বাহির</option>
-                                                                        <option value="{{$dCharge->inside_dhaka}}">ঢাকার ভিতর</option>
+                           @csrf
+                            <div class="row">
+                               <div class="address_section col-md-6">
+                                    <div class="form-address">
+                                        <div class="address-col">
+                                            <h3>Billing Address</h3>
+                                            <div class="billing-fields">
+                                                <div class="form-group">
+                                                    <label for="">আপনার নাম <span>*</span></label>
+                                                    <input type="text" name="name" required class="form-control">
+                                                
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">আপনার মোবাইল নাম্বার</span></label>
+                                                    <input type="text" name="mobile" required class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">আপনার সম্পূর্ণ ঠিকানা<span>*</span></label>
+                                                    <input type="text" name="shipping_address" required class="form-control">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1" style="float: left;">ডেলিভারি এলাকা নির্বাচন করুন</label>
+                                                    <select name="shipping_charge" id="shipping_method" required class="form-control" >
+                                                        <option value="{{$dCharge->all_bangladesh}}">ঢাকার বাহির</option>
+                                                        <option value="{{$dCharge->inside_dhaka}}">ঢাকার ভিতর</option>
                                                                       
-                                                                    </select>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 border-left">
+                                    <div  class="col-md-11">
+                                        <h3>Your Order</h3>
+                                        <div id="order_review" class="review-order">
+                                            <table class="shop_table review-order-table">
+                                            <thead style="background:#2C6036">
+                                                <tr>
+                                                <th class="text-white">#</th>
+                                                <th class="text-white"> Image</th>
+                                                <th class="text-white">Product</th>
+                                                <th class="text-white">Price</th>
+                                                <th class="text-white">Quantity</th>
+                                                <th class="text-white">Total</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @csrf
+                                                @php $total = 0; 
+                                                $pp_total= 0;
+                                                @endphp
+                                            @if(session('cart'))
+                                                @foreach(session('cart') as $id => $details)
+                                                    @php
+                                                        $sub_total= $details['price'] * $details['quantity'];
+                                                        $pp=$details['pp'];
+                                                        $pp_total +=$pp;
+                                                        $total +=$sub_total;
+                                                        
+                                                    @endphp
+                                                    
+                                                        <tr rowId="{{ $id }}">
+                                                <td class="align-left" class="actions">
+                                                        <a class="btn btn-outline-danger btn-sm delete-product"> <i class="text-danger fas fa-trash"></i></a>
+                                                </td>
+                                                <td>
+                                                        <a href="#"><img loading="lazy" alt="" class="img-thumbnail" src="/uploads/{{ $details['image'] }}" style="max-width: 60px;"></a>
+                                                        </td>
+                                                <td class="text-left">
+                                                    <p class="m-0"> {{ $details['name'] }}</p>
+                                                                                                                                                    
+                                                </td>
+                                                <td>{{ $details['price'] }}</td>
+
+                                                <td width="10%" class="cart_qty text-center">
+                                                    <div class=" d-flex align-items-center mb-4 pt-1">
+
+                                                    <div class="input-group quantity mr-3" style="width: 130px;">
+                                                        <div class="input-group-btn">
+                                                        <button class="btn-number qtyminus quantity-minus bg-success text-white"
+                                                                data-id="{{ $id}}">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button>
+                                                        </div>
+                                                        <input type="text" class="input-qty qty bg-white form-control  text-center border-0 rounded-0" size="4""
+                                                            value="{{ $details['quantity'] }}">
+                                                        <div class="input-group-btn">
+                                                        <button class="btn-number qtyplus quantity-plus bg-success text-white"
+                                                                data-id="{{$id }}">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
+                                                </td>
+                                                <td>{{$sub_total}}</td>
+                                                </tr>
+                                                
+                                                @endforeach
+                                            @else
+                                                                                    <tr>
+                                                                                        <td class="text-center">
+                                                                                            There are no any carts available
+
+                                                                                        </td>
+                                                                                    </tr>
+                                                @endif
+                                                    </tbody>
+
+                                            <tfoot>
+                                                <tr>
+                                                <th colspan="4" class="text-right pr-2">Sub Total</th>
+                                                <td><span id="net_total" data-value="{{$total}}">{{$total}}</span></td>
+
+                                                </tr>
+                                                <tr>
+                                                <th colspan="4" class="text-right pr-2">Shipping Cost</th>
+                                                <td>
+                                                            <span id="cart_shipping_cost">{{$dCharge->all_bangladesh}}</span>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                <th colspan="4" class="text-right pr-2">Total</th>
+                                                <td>
+                                                            <span id="grand_total">{{$total + $dCharge->all_bangladesh}}</span>
+                                                </td>
+                                                    </tr>
+                                            </tfoot>
+                                                
+                                               
+                                            </table>
+                                            <div id="payment" class="checkout-payment">
+                                                <ul class="payment_methods payment_methods methods">
+                                                    
+                                                </ul>
+                                                <input type="hidden" class=""name="total_pp" value="{{$pp_total}}">
+                                                <input type="hidden" class=""name="total" value="{{$total}}">
+                                                <div class="form-row place-order">
+                                                     <button type="submit" class="button" name="" id="">অর্ডার করুন</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                             <input type="hidden" class=""name="total_pp" value="{{$pp_total}}">
-                             <input type="hidden" class=""name="total" value="{{$total}}">
-                            <input type="hidden" class="" name="payment_method" value="Cash On Delivery">
-                            <div class="mb-3">
-                               <button type="submit" style="background:#2C6036; color:white" class="btn fw-bold w-100" id="conf_order_btn">অর্ডার কনফার্ম করুণ</button>
-                            </div>
-                            
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </div>
- </section>
+
+
+
+
+
+
+  <!-- Old   Start-->
 
                         </div>
                     </div>
