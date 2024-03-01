@@ -38,7 +38,14 @@
             <i class="nav-icon fas fa-list text-sm"></i>
             <p> ক্যাটাগোরি </p>
         </a>
-    </li>
+</li>
+
+<li class="nav-item">
+        <a href="{{route('brand')}}" class="nav-link {{ Request()->routeIs('brand') ? 'active' : ' ' }}">
+            <i class="nav-icon fas fa-list text-sm"></i>
+            <p> ব্যান্ড </p>
+        </a>
+</li>
     
 <li class="nav-item">
     <a href="{{route('product')}}" class="nav-link {{ Request()->routeIs('product') ? 'active' : ' ' }}">
